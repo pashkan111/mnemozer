@@ -1,0 +1,20 @@
+.note {
+    height: 56px;
+    height: 100%;
+    width: 380px;
+    width: 100%;
+    color: #050505;
+    margin-bottom: 20px;
+    z-index: 10;
+    background-color: #FFFFFF;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    justify-content: center;
+     /* display: ''; */
+    flex-direction:'row' 
+}
+
+.deleteItem {
+    cursor: 'pointer';
+    display: 'inline-block';
+}
