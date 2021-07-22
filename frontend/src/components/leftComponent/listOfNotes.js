@@ -9,17 +9,16 @@ function ListOfNotes() {
 	const {notes} = NoteRed
 
 	React.useEffect(() => {
-		console.log(notes)
         setElement(notes)
 	}, [notes])
 
     return (
-        element.map(item => (
+        element !== null && element !== undefined ? element.map(item => (
         <div>
             {/* <Note name={element.name} date={element.date} time={element.time} done={element.done} />  */}
             <Note name={item.name} date={item.date} time={item.time} done={item.done} /> 
         </div>
-        ))
+        )) : <div></div>
     )
 }
 

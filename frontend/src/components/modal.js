@@ -6,7 +6,7 @@ import {Button, Modal, Form, FormGroup, FormLabel, FormControl, Row, Col } from 
 function Window() {
     const [show, setShow] = React.useState(false);
     
-    const [topic, setTopic] = React.useState('');
+    const [Name, setName] = React.useState('');
     const [description, setDescription] = React.useState('');
     const [day, setDay] = React.useState('');
     const [month, setMonth] = React.useState('');
@@ -44,9 +44,9 @@ function Window() {
                     {/* <FormGroup controlId='email'> */}
                         <FormLabel>Topic</FormLabel>
                         <FormControl
-                            value={topic}
+                            value={Name}
                             placeholder={'Write Topic'}
-                            onChange={(e) => setTopic(e.target.value)}
+                            onChange={(e) => setName(e.target.value)}
                         />
                     {/* </FormGroup> */}
                     {/* <FormGroup controlId='email'> */}

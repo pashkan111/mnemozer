@@ -1,27 +1,27 @@
-from flask import Flask
 from flask_migrate import Migrate
 from flask_restful import Api
-from flask_migrate import Migrate
-from api import NoteApi
+from api import (
+    NoteApi, NoteMonthApi, CreateNote, Register, Login, Test
+    )
+from flask_cors import CORS
+from flask_jwt_extended import JWTManager
+from __init__ import create_app
 
-app = Flask(__name__)
+app = create_app()
 
-app.secret_key = 'qwppqpje34jeejejejje12hdhd'
-
-
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:1234@localhost:5432/mnemozer"
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-api = Api(app)
-
-from models import db
-migrate = Migrate(app, db)
+jwt = JWTManager(app)
+cors = CORS(app, resources=[r'/notes', r'/notes-month'], origins=["http://localhost:3000"])
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 api = Api(app)
-
 
 api.add_resource(NoteApi, '/notes')
+api.add_resource(NoteMonthApi, '/notes-month')
+api.add_resource(CreateNote, '/notes-create')
+api.add_resource(Register, '/register')
+api.add_resource(Login, '/login')
+api.add_resource(Test, '/test')
 
-db.init_app(app)
 
 if __name__ == '__main__':
     app.run(debug=True)

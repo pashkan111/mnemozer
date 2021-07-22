@@ -1,11 +1,12 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
-import {NoteReducer} from './redux/reduser'
+import {NoteReducer, NoteCalendar} from './redux/reduser'
 
 
 const reducer = combineReducers({
-    NoteReducer: NoteReducer
+    NoteReducer: NoteReducer,
+    NoteCalendar: NoteCalendar
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ?
